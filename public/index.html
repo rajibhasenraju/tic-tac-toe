@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tic-Tac-Toe · C11 + WebAssembly</title>
+    <meta
+      name="description"
+      content="Responsive two-player Tic-Tac-Toe powered by a C11 engine compiled to WebAssembly."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-live="polite">
+      <header class="header">
+        <h1>Tic-Tac-Toe</h1>
+        <p>Two-player local match with all rules and scoring enforced by a C11 WebAssembly engine.</p>
+      </header>
+
+      <section class="scores" aria-label="Match scores">
+        <article class="score-card x"><h2>Player X</h2><p id="score-x">0</p></article>
+        <article class="score-card d"><h2>Draws</h2><p id="score-draws">0</p></article>
+        <article class="score-card o"><h2>Player O</h2><p id="score-o">0</p></article>
+      </section>
+
+      <p id="status" class="status">Loading WebAssembly engine…</p>
+
+      <section class="board-wrap" aria-label="Tic-Tac-Toe board">
+        <div id="board" class="board" role="grid" aria-label="3 by 3 game board"></div>
+      </section>
+
+      <section class="controls" aria-label="Round controls">
+        <button id="restart-round" type="button">Restart Round</button>
+        <button id="new-match" type="button">New Match</button>
+      </section>
+    </main>
+
+    <script src="./game.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
