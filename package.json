@@ -1,0 +1,13 @@
+{
+  "name": "tic-tac-toe",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Responsive two-player Tic-Tac-Toe powered by a C11 WebAssembly engine.",
+  "scripts": {
+    "test:web": "node tests/web/integration.test.mjs",
+    "test": "npm run test:web"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  }
+}
