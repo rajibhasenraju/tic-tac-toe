@@ -5,7 +5,7 @@ EMCC ?= emcc
 DIST_DIR := dist
 PUBLIC_DIR := public
 
-EM_FLAGS := -std=c11 -Wall -Wextra -Wpedantic -O2 \
+EM_FLAGS := -std=c11 -Wall -Wextra -Wpedantic -O2 --no-entry \
 	-s WASM=1 \
 	-s MODULARIZE=1 \
 	-s EXPORT_NAME='createGameModule' \
