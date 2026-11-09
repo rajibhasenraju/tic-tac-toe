@@ -23,6 +23,8 @@ build: $(DIST_DIR)
 	cp $(PUBLIC_DIR)/index.html $(DIST_DIR)/index.html
 	cp $(PUBLIC_DIR)/styles.css $(DIST_DIR)/styles.css
 	cp $(PUBLIC_DIR)/app.js $(DIST_DIR)/app.js
+	mkdir -p $(DIST_DIR)/docs
+	cp $(PUBLIC_DIR)/docs/index.html $(DIST_DIR)/docs/index.html
 test-native:
 	$(CC) $(CFLAGS) src/game.c tests/native/test_game.c -Isrc -o tests/native/test_game
 	./tests/native/test_game
