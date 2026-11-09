@@ -1,41 +1,17 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tic-Tac-Toe · C11 + WebAssembly</title>
-    <meta
-      name="description"
-      content="Responsive two-player Tic-Tac-Toe powered by a C11 engine compiled to WebAssembly."
-    />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <main class="app" aria-live="polite">
-      <header class="header">
-        <h1>Tic-Tac-Toe</h1>
-        <p>Two-player local match with all rules and scoring enforced by a C11 WebAssembly engine.</p>
-      </header>
-
-      <section class="scores" aria-label="Match scores">
-        <article class="score-card x"><h2>Player X</h2><p id="score-x">0</p></article>
-        <article class="score-card d"><h2>Draws</h2><p id="score-draws">0</p></article>
-        <article class="score-card o"><h2>Player O</h2><p id="score-o">0</p></article>
-      </section>
-
-      <p id="status" class="status">Loading WebAssembly engine…</p>
-
-      <section class="board-wrap" aria-label="Tic-Tac-Toe board">
-        <div id="board" class="board" role="grid" aria-label="3 by 3 game board"></div>
-      </section>
-
-      <section class="controls" aria-label="Round controls">
-        <button id="restart-round" type="button">Restart Round</button>
-        <button id="new-match" type="button">New Match</button>
-      </section>
-    </main>
-
-    <script src="./game.js"></script>
-    <script src="./app.js"></script>
-  </body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tic-Tac-Toe</title><meta name="description" content="A minimal Tic-Tac-Toe game. Play a friend or challenge a C-powered computer opponent.">
+<script>try{const t=localStorage.getItem('ttt-theme');document.documentElement.dataset.theme=t==='dark'||t==='light'?t:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch{document.documentElement.dataset.theme='dark'}</script>
+<link rel="stylesheet" href="./styles.css"></head><body>
+<a class="skip" href="#board">Skip to board</a>
+<main class="app">
+<header class="topbar"><a class="brand" href="./">Tic-Tac-Toe<span>C / WebAssembly</span></a><nav aria-label="Main"><a href="./docs/">Docs</a><label class="theme-label">Theme <select id="theme"><option value="system">System</option><option value="dark">Dark</option><option value="light">Light</option></select></label></nav></header>
+<section class="intro"><p class="eyebrow">THREE IN A ROW. ONE MORE ROUND.</p><h1>Your move.</h1><p>A familiar game. A quieter canvas.</p></section>
+<fieldset id="settings" class="settings" disabled><legend class="sr-only">Game settings</legend><label>Play against <select id="mode"><option value="0">A friend</option><option value="1">Computer · perfect play</option></select></label><label id="side-label" hidden>Your mark <select id="side"><option value="1">X · first move</option><option value="2">O · second move</option></select></label></fieldset>
+<section class="scores" aria-label="Match scores"><article><h2 id="label-x">Player X</h2><p id="score-x">0</p></article><article><h2>Draws</h2><p id="score-draws">0</p></article><article><h2 id="label-o">Player O</h2><p id="score-o">0</p></article></section>
+<p id="status" class="status" role="status" aria-live="polite" aria-atomic="true">Loading WebAssembly engine…</p>
+<div id="board" class="board" role="group" aria-label="3 by 3 game board" tabindex="-1"></div>
+<section class="controls" aria-label="Round controls"><button id="restart-round" type="button" disabled>Restart Round</button><button id="new-match" type="button" disabled>New Match</button></section>
+<p class="hint">Restart keeps scores. New match clears them.<br>Changing opponent or mark starts a new match.</p>
+<footer>Rules and computer strategy run in C. <a href="./docs/">Explore the game →</a></footer>
+</main><script src="./game.js"></script><script src="./app.js"></script></body></html>
